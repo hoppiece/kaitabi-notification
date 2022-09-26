@@ -20,5 +20,8 @@ USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/602.4.
 ROBOTSTXT_OBEY = False
 LOG_ENABLED = False
 
-FEEDS = {"stdout:": {"format": "json", "encoding": "utf-8"}}
+FEEDS = {
+    "stdout:": {"format": "jsonlines", "encoding": "utf-8"},
+    "/tmp/kaitabi_out.json": {"format": "json", "encoding": "utf-8"},
+}
 DOWNLOADER_CLIENT_TLS_METHOD = "TLS"

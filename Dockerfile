@@ -10,4 +10,4 @@ RUN pip install --upgrade pip \
     && pip install -r requirements.txt
 
 WORKDIR /opt/kaitabi_crawler
-CMD ["scrapy", "crawl", "kaitabi-spider"]
+CMD ["python", "crawl.py"]

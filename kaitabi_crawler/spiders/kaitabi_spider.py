@@ -4,12 +4,12 @@ import time
 from string import Template
 
 import scrapy
-from kaitabi_crawler.items import KaitabiCrawlerItem
+from items import KaitabiCrawlerItem
 from scrapy.http import JsonRequest
 from scrapy.linkextractors import LinkExtractor
 
 
-class KaitabiSpiderSpider(scrapy.Spider):
+class KaitabiSpider(scrapy.Spider):
     name = "kaitabi-spider"
     start_urls = ["https://www.hoshinoresorts.com/sp/kaitabi20s/"]
 
