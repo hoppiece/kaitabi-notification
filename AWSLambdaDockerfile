@@ -1,0 +1,14 @@
+FROM public.ecr.aws/lambda/python:3.9
+WORKDIR /opt
+
+COPY kaitabi_crawler  kaitabi_crawler
+COPY scrapy.cfg  .
+COPY requirements.txt  .
+COPY app.py ${LAMBDA_TASK_ROOT}
+
+ENV PYTHONPATH /opt/kaitabi_crawler
+
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+
+CMD [ "app.handler" ]

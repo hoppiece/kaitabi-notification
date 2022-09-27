@@ -1,4 +1,5 @@
 import json
+import os
 from multiprocessing import Process
 
 from scrapy.crawler import CrawlerProcess
@@ -20,8 +21,9 @@ def run():
     process.join()
     with open("/tmp/kaitabi_out.json") as fp:
         result = json.load(fp)
-
-    return result
+    os.remove("/tmp/kaitabi_out.json")
+    response = {"statusCode": 200, "results": result}
+    return response
 
 
 if __name__ == "__main__":
