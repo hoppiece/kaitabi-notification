@@ -29,7 +29,6 @@ jobs:
         run: |
           python kaitabi_crawler/crawl.py | tee ./result.json
           result=$(cat ./result.json)
-          result="${result//$'\n'/\\n}"
           echo "::set-output name=result::$result"
 
       
@@ -38,4 +37,4 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: $RESULT
+          description: ${{ steps.crawl.outputs.result }}
