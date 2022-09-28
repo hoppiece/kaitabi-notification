@@ -28,9 +28,11 @@ jobs:
         id: crawl
         run: |
           python kaitabi_crawler/crawl.py | tee ./result.csv
-          result=$(cat ./result.csv)
-          result="${result//$'\n'/\\n}"
-          echo "::set-output name=result::$result"
+          value=$(cat ./result.csv)
+          value="${value//'%'/'%25'}"
+          value="${value//$'\n'/'%0A'}"
+          value="${value//$'\r'/'%0D'}"
+          echo "::set-output name=result::${value}"
 
       
       - name: Post to Discord
