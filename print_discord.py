@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
     for date, hotels in sorted(result.items()):
         print(date)
-        print("\t".join([template(h) for h in hotels]))
+        print("\t".join([template(h) for h in sorted(hotels, key=lambda x: x["name"])]))
 
         print()
