@@ -5,7 +5,7 @@ def template(hotel):
     name = hotel["name"]
     vacancy = hotel["vacancy"]
     link = hotel["link"]
-    return f"[{name}({vacancy})]({link})"
+    return f"[{name}]({link}) ({vacancy})"
 
 
 if __name__ == "__main__":
@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
     for date, hotels in sorted(result.items()):
         print(date)
-        print(", ".join([template(h) for h in hotels]))
+        print("\t".join([template(h) for h in hotels]))
 
         print()
