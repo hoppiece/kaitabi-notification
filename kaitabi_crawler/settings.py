@@ -21,7 +21,6 @@ ROBOTSTXT_OBEY = False
 LOG_ENABLED = False
 
 FEEDS = {
-    "stdout:": {"format": "jsonlines", "encoding": "utf-8"},
+    "stdout:": {"format": "csv", "encoding": "utf-8"},
     "/tmp/kaitabi_out.json": {"format": "json", "encoding": "utf-8"},
 }
-DOWNLOADER_CLIENT_TLS_METHOD = "TLS"
