@@ -27,9 +27,10 @@ jobs:
       - name: Run script
         id: crawl
         run: |
-          python kaitabi_crawler/crawl.py | tee ./result.jsonl
-          result=$(cat ./result.jsonl)
-          echo "RESULT=${result}" >> $GITHUB_ENV
+          python kaitabi_crawler/crawl.py | tee ./result.json
+          result=$(cat ./result.json)
+          result="${result//$'\n'/\\n}"
+          echo "::set-output name=result::$result"
 
       
       - name: Post to Discord
