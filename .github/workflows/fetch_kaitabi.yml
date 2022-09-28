@@ -27,7 +27,10 @@ jobs:
       - name: Run script
         id: crawl
         run: |
-          python kaitabi_crawler/crawl.py
+          python kaitabi_crawler/crawl.py | tee ./result.jsonl
+          result=$(cat ./result.jsonl)
+          echo "::set-output name=result::$resultt"
+
       
       - name: Post to Discord
         uses: sarisia/actions-status-discord@v1
