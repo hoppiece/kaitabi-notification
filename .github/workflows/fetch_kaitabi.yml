@@ -29,8 +29,7 @@ jobs:
         run: |
           python kaitabi_crawler/crawl.py | tee ./result.jsonl
           result=$(cat ./result.jsonl)
-          result="${result//$'\n'/\\n}"
-          echo "::set-output name=result::$result"
+          echo "RESULT=${result}" >> $GITHUB_ENV
 
       
       - name: Post to Discord
@@ -38,4 +37,4 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: ${{ steps.crawl.outputs.result }}
+          description: $RESULT
