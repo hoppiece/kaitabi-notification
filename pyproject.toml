@@ -1,5 +1,6 @@
 [tool.poetry]
 name = "kaitabi-notification"
+authors = "hoppiece"
 version = "0.1.0"
 description = "Kaitabi notification bot"
 license = "MIT"
