@@ -29,7 +29,8 @@ jobs:
         run: |
           python kaitabi_crawler/crawl.py | tee ./result.jsonl
           result=$(cat ./result.jsonl)
-          echo "::set-output name=result::$resultt"
+          result="${result//$'\n'/\\n}"
+          echo "::set-output name=result::$result"
 
       
       - name: Post to Discord
