@@ -42,3 +42,4 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           description: |
             ${{ steps.crawl.outputs.result }}
+          nodetail: true
