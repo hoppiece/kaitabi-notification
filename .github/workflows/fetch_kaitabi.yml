@@ -28,7 +28,7 @@ jobs:
         id: crawl
         run: |
           python kaitabi_crawler/crawl.py | tee ./result.json
-          result=$(cat ./result.json | tr -d '\n')
+          result="${result//$'\n'/\\n}"
           echo "::set-output name=result::$result"
 
       
