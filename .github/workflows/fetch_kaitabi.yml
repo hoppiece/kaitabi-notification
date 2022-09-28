@@ -27,7 +27,8 @@ jobs:
       - name: Run script
         id: crawl
         run: |
-          python kaitabi_crawler/crawl.py | tee ./result.json
+          python kaitabi_crawler/crawl.py | tee ./result.csv
+          result=$(cat ./result.csv)
           result="${result//$'\n'/\\n}"
           echo "::set-output name=result::$result"
 
@@ -37,4 +38,5 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          description: ${{ steps.crawl.outputs.result }}
+          description: |
+            ${{ steps.crawl.outputs.result }}
