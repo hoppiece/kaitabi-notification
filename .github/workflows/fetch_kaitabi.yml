@@ -30,7 +30,7 @@ jobs:
           python kaitabi_crawler/crawl.py
       
       - name: Post to Discord
-      - uses: sarisia/actions-status-discord@v1
+        uses: sarisia/actions-status-discord@v1
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
