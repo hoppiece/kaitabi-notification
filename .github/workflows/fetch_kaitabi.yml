@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: kaitabi_bot
 
 on:
@@ -12,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # 実行する処理＆コマンド指定
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.9
@@ -27,8 +24,9 @@ jobs:
       - name: Run script
         id: crawl
         run: |
-          python kaitabi_crawler/crawl.py | tee ./result.csv
-          value=$(cat ./result.csv)
+          python kaitabi_crawler/crawl.py | tee ./result.json
+          python print_discord.py > ./result.txt
+          value=$(cat ./result.txt)
           value="${value//'%'/'%25'}"
           value="${value//$'\n'/'%0A'}"
           value="${value//$'\r'/'%0D'}"

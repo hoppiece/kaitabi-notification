@@ -21,6 +21,6 @@ ROBOTSTXT_OBEY = False
 LOG_ENABLED = False
 
 FEEDS = {
-    "stdout:": {"format": "csv", "encoding": "utf-8"},
+    "stdout:": {"format": "json", "encoding": "utf-8"},
     "/tmp/kaitabi_out.json": {"format": "json", "encoding": "utf-8"},
 }
