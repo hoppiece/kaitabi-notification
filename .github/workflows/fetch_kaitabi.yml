@@ -6,6 +6,7 @@ on:
   schedule:
     # Schedule for UTC
     - cron: '0 15 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
