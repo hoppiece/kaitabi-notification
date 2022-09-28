@@ -1,8 +1,10 @@
 import json
 
 if __name__ == "__main__":
-    with open("./result.json") as fp:
-        result = json.load(fp)
+    result = []
+    with open("./result.jsonl") as fp:
+        for line in fp:
+            result.append(json.loads(line))
     for hotel in result:
         name = hotel["name"]
         date = hotel["date"]

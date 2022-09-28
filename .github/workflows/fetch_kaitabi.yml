@@ -24,7 +24,7 @@ jobs:
       - name: Run script
         id: crawl
         run: |
-          python kaitabi_crawler/crawl.py | tee ./result.json
+          python kaitabi_crawler/crawl.py | tee ./result.jsonl
           python print_discord.py > ./result.txt
           value=$(cat ./result.txt)
           value="${value//'%'/'%25'}"
