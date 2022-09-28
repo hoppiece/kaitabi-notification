@@ -38,6 +38,7 @@ jobs:
         if: always()
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: 予約可能状況
           description: |
             ${{ steps.crawl.outputs.result }}
           nodetail: true
