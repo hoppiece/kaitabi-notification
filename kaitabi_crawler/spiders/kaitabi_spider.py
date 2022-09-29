@@ -36,12 +36,6 @@ class KaitabiSpider(scrapy.Spider):
                     cb_kwargs={"reservation_url": url, "name": name},
                 )
 
-            month = str(datetime.date.today().month + 3)  # 3ヶ月後
-            api = self.query_builder(hotelid, planid, month)
-            yield JsonRequest(
-                api, callback=self.parse_calender, cb_kwargs={"reservation_url": url, "name": name}
-            )
-
     def parse_calender(self, response, reservation_url, name):
         jsonresponse = json.loads(response.text)
         vacancys = jsonresponse["vacancyList"]
