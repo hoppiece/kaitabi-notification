@@ -1,2 +1,3 @@
 # kaitabi-notification
-Vacancy notification system of 界タビ20s.
+Vacancy notification system of KaiTabi20s.
+ 
